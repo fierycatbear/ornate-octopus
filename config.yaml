@@ -1,0 +1,42 @@
+races:
+  - Elf
+  - Orc
+items:
+  bedroll: 2
+  dagger: 5
+  feet of rope: 1
+  sword: 10
+players:
+  defaults:
+    inventory:
+      bedroll: 1
+      dagger: 1
+      feet of rope: 50
+  rob:
+    gold_coins: 40
+    inventory:
+      bedroll: 1
+      dagger: 1
+      feet of rope: 50
+      sword: 1
+    pclass: Druid
+    race: Dwarf
+  sally:
+    gold_coins: 40
+    inventory:
+      bedroll: 1
+      dagger: 1
+      feet of rope: 50
+      sword: 1
+    pclass: Monk
+    race: Elf
+state:
+  market:
+    gold_coins: 30
+    inventory:
+      bedroll: 20
+      dagger: 50
+      feet of rope: 100
+      sword: 8
+    pclass: null
+    race: null
