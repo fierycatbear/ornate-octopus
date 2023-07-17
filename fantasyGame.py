@@ -34,7 +34,14 @@ class Item:
 class Player:
     """why do i need to do this"""
     inventory: dict
-    state_attrs = ["race", "pclass", "gold_coins"]
+    xp: int
+    hp: int
+    race: str 
+    pclass: str
+    gold_coins: int
+    name: str 
+
+    state_attrs = ["name", "race", "pclass", "gold_coins", "xp", "hp"]
 
     def __init__(self, name: str = "", inventory: dict = {}):
 
