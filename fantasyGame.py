@@ -9,13 +9,22 @@ chosen by the player at the beginning of the game. If the player's hp ever goes 
 
 #classes/functions etc
 class Item:
+    """Creates an item for the market - replace with market class?"""
     
     def __init__(self, name, quantity, price):
         self.name = name
         self.quantity = quantity
         self.price = price
 
+class Market:
+    """Creates a market"""
+
+    def __init__(self, name):
+        self.name = name
+        self.inventory = {'feet of rope': 100, 'health potion': 5, 'sword': 3, 'bedroll': 10, }
+
 class Player:
+    """Create a player character"""
 
     def __init__(self):
 
@@ -79,14 +88,15 @@ class Player:
                 print("What is your class?\n 1. Barbarian\n 2. Bard\n 3. Cleric\n 4. Druid\n 5. Rogue\n 6. Ranger\n 7. Sorcerer\n 8. Monk")
                 class_choice = input("Please choose by entering a number between 1 and 8: ")
 
-def print_inv():
-    print(f"{p1.name}'s Inventory:")
-    for k,v in p1.inventory.items():
+def print_inv(player):
+    """prints players inventory"""
+    print(f"{player.name}'s Inventory:")
+    for k,v in player.inventory.items():
         print(v, k)   
 
-def see_stats():
-    print(f"Hello, {p1.name}. Here are your statistics!")
-    print(f"Race: {p1.race}\nClass: {p1.pclass}\nHit points: {p1.hp}\nXP: {p1.xp}\nGold Coins: {p1.gold_coins}")
+def see_stats(player):
+    print(f"Hello, {player.name}. Here are your statistics!")
+    print(f"Race: {player.race}\nClass: {player.pclass}\nHit points: {player.hp}\nXP: {player.xp}\nGold Coins: {player.gold_coins}")
     print_inv()
 """
 def check_amt_items(item):
@@ -130,12 +140,14 @@ def buy_item(item):
             print(f"Okay, that will be {cost} for {num_bought} of {item.name}. Here you go!")
             p1.gold_coins -= cost
             update_inventory(item, num_bought)
+
 """
-def update_inventory(item, quantity):
-    if item not in dict:
-        p1.inventory.update({item: quantity})
-    else:
-        p1.inventory[item] = quantity
+def update_inventory(self, item, quantity: int):
+    """updates your inventory. for the third time, duh"""
+    self.inventory[item] = self.inventory.get(item, 0) + quantity
+    return self
+
+        
 
 
 def choose_activities():
